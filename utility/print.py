@@ -16,6 +16,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 # This import ensure py2.7 compatibility
 from __future__ import print_function
+improt sys
 
 def print_sm(*args, **kwargs):
     # Print in the same line
