@@ -62,8 +62,8 @@ sudo pip install --upgrade ipaddress && sudo apt -y install xterm && sudo git cl
 
 printf "\n#Kathara Config\nexport NETKIT_HOME=/opt/kathara/bin\nexport PATH=\$PATH:\$NETKIT_HOME" >> ~/.bashrc
 
-export "NETKIT_HOME=/opt/kathara/bin"
+export NETKIT_HOME=/opt/kathara/bin
 
-export "PATH=$PATH:$NETKIT_HOME"
+export PATH=$PATH:$NETKIT_HOME
 
-sudo $NETKIT_HOME/install
+$NETKIT_HOME/install
