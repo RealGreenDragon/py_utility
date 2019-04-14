@@ -18,7 +18,7 @@ sudo umount -f "$(df --output=target | grep VBox_GAs_)"
 #### Remove 'Guest Additions CD' by right click on disk icon in vbox windows bottom-right and select "Remove disk from virtual drive"
 
 #### Add current user in 'vboxsf' group to grant access to shared folders
-sudo usermod --append --groups vboxsf $(whoami)
+sudo usermod -aG vboxsf $(whoami)
 
 #### Reboot to enable changes
 sudo reboot
@@ -51,11 +51,11 @@ wget -O ~/atom-amd64.deb https://atom.io/download/deb && sudo apt -y install ~/a
 #### XAMPP v7.3.2 x64 + Shortcut scripts
 wget -O ~/xampp-x64.run "https://www.apachefriends.org/xampp-files/7.3.3/xampp-linux-x64-7.3.3-1-installer.run" && chmod a+x ~/xampp-x64.run && sudo ~/xampp-x64.run --mode unattended && rm -f ~/xampp-x64.run && sudo chmod o+rx -R /opt/lampp/htdocs/ && echo "/opt/lampp/manager-linux-x64.run" > ~/xampp_gui.sh && echo "/opt/lampp/lampp" > ~/xampp_service.sh && chmod a+x ~/xampp_*.sh
 
-#### Docker (latest version)
-curl -fsSL https://get.docker.com -o ~/get-docker.sh && chmod a+x ~/get-docker.sh && sudo sh ~/get-docker.sh && rm -f ~/get-docker.sh
+#### Docker (latest version) -> Reboot required
+curl -fsSL https://get.docker.com -o ~/get-docker.sh && chmod a+x ~/get-docker.sh && sudo sh ~/get-docker.sh && rm -f ~/get-docker.sh && sudo usermod -aG docker $(whoami) && sudo reboot
 
-#### Wireshark (latest version) -> reboot required
-sudo apt install wireshark && sudo usermod -aG wireshark $(whoami) && sudo reboot
+#### Wireshark (latest version) -> Reboot required
+sudo apt -y install wireshark && sudo usermod -aG wireshark $(whoami) && sudo reboot
 
 #### Kathara + GUI (latest version) -> Requirements: Docker + python 2.7 (aliased as 'python')
-sudo pip install --upgrade ipaddress && sudo apt install xterm && sudo git clone --recursive https://github.com/KatharaFramework/Kathara.git /opt/kathara && printf "\n#Kathara Config\nexport NETKIT_HOME=/opt/kathara/bin\nexport PATH=\$PATH:\$NETKIT_HOME" >> ~/.bashrc && sudo $NETKIT_HOME/install
+sudo pip install --upgrade ipaddress && sudo apt -y install xterm && sudo git clone --recursive https://github.com/KatharaFramework/Kathara.git /opt/kathara && printf "\n#Kathara Config\nexport NETKIT_HOME=/opt/kathara/bin\nexport PATH=\$PATH:\$NETKIT_HOME" >> ~/.bashrc && sudo $NETKIT_HOME/install
