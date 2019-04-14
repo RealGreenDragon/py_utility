@@ -37,7 +37,7 @@ sudo dpkg-reconfigure keyboard-configuration
 ## Some useful software
 
 #### Base software
-sudo apt install -y curl wget net-tools unrar ffmpeg vlc vim python python-pip && sudo apt -y clean && sudo apt -y autoremove --purge
+sudo apt install -y curl wget net-tools unrar ffmpeg vlc vim python python-pip git && sudo apt -y clean && sudo apt -y autoremove --purge
 
 #### Pyhton Modules
 sudo pip install --upgrade wheel setuptools twine requests python_utils pycryptodome
