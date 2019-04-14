@@ -1,4 +1,4 @@
-# VirtualBox Configuration Guide for Ubuntu and derivates (x64)
+# VirtualBox Ubuntu (and derivates) x64 Configuration Guide
 
 Author: Daniele Giudice
 
@@ -37,13 +37,13 @@ sudo dpkg-reconfigure keyboard-configuration
 ## Some useful software
 
 #### Base software
-sudo apt install -y net-tools unrar ffmpeg vlc && sudo apt -y clean && sudo apt -y autoremove --purge
+sudo apt install -y net-tools unrar ffmpeg vlc vim && sudo apt -y clean && sudo apt -y autoremove --purge
 
-#### Notepadqq
+#### Notepadqq (latest version)
 sudo add-apt-repository -y ppa:notepadqq-team/notepadqq && sudo apt -y update && sudo apt install -y notepadqq && sudo apt -y clean && sudo apt -y autoremove --purge
 
-#### Atom
+#### Atom (latest version)
 sudo wget -O ~/atom-amd64.deb https://atom.io/download/deb && sudo apt -y install ~/atom-amd64.deb && sudo apt -y clean && sudo apt -y autoremove --purge && sudo rm -rf ~/atom-amd64.deb
 
-#### XAMPP v7.3.2 x64
-sudo wget -O ~/xampp-x64.run "https://www.apachefriends.org/xampp-files/7.3.2/xampp-linux-x64-7.3.2-1-installer.run" && sudo chmod +x ~/xampp-x64.run && sudo ~/xampp-x64.run --mode unattended && sudo rm -rf ~/xampp-x64.run && sudo chmod a+x -R /opt/lampp/htdocs/ && echo "/opt/lampp/manager-linux-x64.run" > ~/xampp_gui.sh && echo "/opt/lampp/lampp" > ~/xampp_service.sh && chmod +x ~/xampp_*.sh
+#### XAMPP v7.3.2 x64 + Shortcut scripts
+sudo wget -O ~/xampp-x64.run "https://www.apachefriends.org/xampp-files/7.3.3/xampp-linux-x64-7.3.3-1-installer.run" && sudo chmod +x ~/xampp-x64.run && sudo ~/xampp-x64.run --mode unattended && sudo rm -rf ~/xampp-x64.run && sudo chmod a+x -R /opt/lampp/htdocs/ && echo "/opt/lampp/manager-linux-x64.run" > ~/xampp_gui.sh && echo "/opt/lampp/lampp" > ~/xampp_service.sh && chmod +x ~/xampp_*.sh
