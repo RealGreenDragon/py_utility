@@ -54,10 +54,8 @@ wget -O ~/xampp-x64.run "https://www.apachefriends.org/xampp-files/7.3.3/xampp-l
 #### Docker (latest version)
 curl -fsSL https://get.docker.com -o ~/get-docker.sh && chmod a+x ~/get-docker.sh && sudo sh ~/get-docker.sh && rm -f ~/get-docker.sh
 
-#### Wireshark (latest version)
-sudo apt install wireshark
-sudo usermod -aG wireshark $(whoami)
-sudo reboot
+#### Wireshark (latest version) -> reboot required
+sudo apt install wireshark && sudo usermod -aG wireshark $(whoami) && sudo reboot
 
 #### Kathara + GUI (latest version) -> Requirements: Docker + python 2.7 (aliased as 'python')
 sudo pip install --upgrade ipaddress && sudo apt install xterm && sudo git clone --recursive https://github.com/KatharaFramework/Kathara.git /opt/kathara && printf "\n#Kathara Config\nexport NETKIT_HOME=/opt/kathara/bin\nexport PATH=\$PATH:\$NETKIT_HOME" >> ~/.bashrc && sudo $NETKIT_HOME/install
