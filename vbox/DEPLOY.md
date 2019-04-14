@@ -57,7 +57,7 @@ curl -fsSL https://get.docker.com -o ~/get-docker.sh && chmod a+x ~/get-docker.s
 #### Wireshark (latest version) -> Reboot required
 sudo apt -y install wireshark && sudo usermod -aG wireshark $(whoami) && sudo reboot
 
-#### Kathara + GUI (latest version) -> Requirements: Docker + python 2.7 (aliased as 'python')
+#### Kathara + GUI (latest version) -> Requirements: Docker + python 2.7 (aliased as python)
 sudo pip install --upgrade ipaddress && sudo apt -y install xterm && sudo git clone --recursive https://github.com/KatharaFramework/Kathara.git /opt/kathara
 
 printf "\n#Kathara Config\nexport NETKIT_HOME=/opt/kathara/bin\nexport PATH=\$PATH:\$NETKIT_HOME" >> ~/.bashrc
