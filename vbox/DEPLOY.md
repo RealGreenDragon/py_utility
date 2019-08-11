@@ -5,7 +5,7 @@ Author: Daniele Giudice
 ## Install/Update VirtualBox Guest Additions + Enable Shared Folders Access
 
 #### Update all packages + Install 'VirtualBox Guest Additions' dependencies
-sudo apt -y update && sudo apt -y upgrade && sudo apt -y install build-essential virtualbox-guest-dkms linux-headers-virtual && sudo apt -y clean && sudo apt -y autoremove --purge
+sudo apt -y update && sudo apt -y upgrade && sudo apt -y install build-essential virtualbox-guest-dkms linux-headers-virtual && sudo apt -y autoremove && sudo apt -y clean
 
 #### Mount 'Guest Additions CD' from menu "Devices->Insert Guest Additions CD image..."
 
@@ -37,19 +37,19 @@ sudo dpkg-reconfigure keyboard-configuration
 ## Some useful software
 
 #### Base software
-sudo apt install -y curl wget net-tools unrar ffmpeg vlc vim python python-pip git && sudo apt -y clean && sudo apt -y autoremove --purge
+sudo apt install -y curl wget net-tools unrar ffmpeg vlc vim python python-pip git && sudo apt -y autoremove && sudo apt -y clean
 
 #### Pyhton Modules
 sudo pip install --upgrade wheel setuptools twine requests python_utils pycryptodome
 
-#### TeX Live (latest version - full package)
-wget https://github.com/scottkosty/install-tl-ubuntu/raw/master/install-tl-ubuntu && chmod +x ./install-tl-ubuntu && sudo ./install-tl-ubuntu && sudo tlmgr update --self && sudo tlmgr update --all
+#### TeX Live
+sudo apt install -y texlive-latex-extra
 
 #### Notepadqq (latest version)
-sudo add-apt-repository -y ppa:notepadqq-team/notepadqq && sudo apt -y update && sudo apt install -y notepadqq && sudo apt -y clean && sudo apt -y autoremove --purge
+sudo add-apt-repository -y ppa:notepadqq-team/notepadqq && sudo apt -y update && sudo apt install -y notepadqq
 
 #### Atom (latest version)
-wget -O ~/atom-amd64.deb https://atom.io/download/deb && sudo apt -y install ~/atom-amd64.deb && sudo apt -y clean && sudo apt -y autoremove --purge && rm -f ~/atom-amd64.deb
+wget -O ~/atom-amd64.deb https://atom.io/download/deb && sudo apt -y install ~/atom-amd64.deb && rm -f ~/atom-amd64.deb
 
 #### XAMPP v7.3.8 x64 + Shortcut scripts
 wget -O ~/xampp-x64.run "https://www.apachefriends.org/xampp-files/7.3.8/xampp-linux-x64-7.3.8-0-installer.run" && chmod a+x ~/xampp-x64.run && sudo ~/xampp-x64.run --mode unattended && rm -f ~/xampp-x64.run && sudo chmod o+rx -R /opt/lampp/htdocs/ && echo "/opt/lampp/manager-linux-x64.run" > ~/xampp_gui.sh && echo "/opt/lampp/lampp" > ~/xampp_service.sh && chmod a+x ~/xampp_*.sh
