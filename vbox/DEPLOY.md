@@ -40,10 +40,10 @@ sudo dpkg-reconfigure keyboard-configuration
 sudo apt install -y curl wget net-tools unrar ffmpeg vlc vim python python-pip git && sudo apt -y autoremove && sudo apt -y clean
 
 #### Pyhton Modules
-sudo pip install --upgrade wheel setuptools twine requests python_utils pycryptodome
+sudo pip install --upgrade wheel setuptools requests python_utils pycryptodome
 
-#### TeX Live
-sudo apt install -y texlive-latex-extra
+#### TeX Live (ready for publications, but cannot use tlmgr)
+sudo apt install -y texlive-latex-extra texlive-publishers texlive-lang-italian
 
 #### Notepadqq (latest version)
 sudo add-apt-repository -y ppa:notepadqq-team/notepadqq && sudo apt -y update && sudo apt install -y notepadqq
