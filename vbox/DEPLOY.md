@@ -37,10 +37,13 @@ sudo dpkg-reconfigure keyboard-configuration
 ## Some useful software
 
 #### Base software
-sudo apt install -y curl wget gksu perl-tk net-tools unrar ffmpeg vlc vim python python-pip git && sudo apt -y clean && sudo apt -y autoremove --purge
+sudo apt install -y curl wget net-tools unrar ffmpeg vlc vim python python-pip git && sudo apt -y clean && sudo apt -y autoremove --purge
 
 #### Pyhton Modules
 sudo pip install --upgrade wheel setuptools twine requests python_utils pycryptodome
+
+#### TeX Live (latest version - full package)
+wget https://github.com/scottkosty/install-tl-ubuntu/raw/master/install-tl-ubuntu && chmod +x ./install-tl-ubuntu && sudo ./install-tl-ubuntu && sudo tlmgr update --self && sudo tlmgr update --all
 
 #### Notepadqq (latest version)
 sudo add-apt-repository -y ppa:notepadqq-team/notepadqq && sudo apt -y update && sudo apt install -y notepadqq && sudo apt -y clean && sudo apt -y autoremove --purge
