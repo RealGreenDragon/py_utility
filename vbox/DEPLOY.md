@@ -48,8 +48,8 @@ sudo add-apt-repository -y ppa:notepadqq-team/notepadqq && sudo apt -y update &&
 #### Atom (latest version)
 wget -O ~/atom-amd64.deb https://atom.io/download/deb && sudo apt -y install ~/atom-amd64.deb && sudo apt -y clean && sudo apt -y autoremove --purge && rm -f ~/atom-amd64.deb
 
-#### XAMPP v7.3.2 x64 + Shortcut scripts
-wget -O ~/xampp-x64.run "https://www.apachefriends.org/xampp-files/7.3.3/xampp-linux-x64-7.3.3-1-installer.run" && chmod a+x ~/xampp-x64.run && sudo ~/xampp-x64.run --mode unattended && rm -f ~/xampp-x64.run && sudo chmod o+rx -R /opt/lampp/htdocs/ && echo "/opt/lampp/manager-linux-x64.run" > ~/xampp_gui.sh && echo "/opt/lampp/lampp" > ~/xampp_service.sh && chmod a+x ~/xampp_*.sh
+#### XAMPP v7.3.8 x64 + Shortcut scripts
+wget -O ~/xampp-x64.run "https://www.apachefriends.org/xampp-files/7.3.8/xampp-linux-x64-7.3.8-0-installer.run" && chmod a+x ~/xampp-x64.run && sudo ~/xampp-x64.run --mode unattended && rm -f ~/xampp-x64.run && sudo chmod o+rx -R /opt/lampp/htdocs/ && echo "/opt/lampp/manager-linux-x64.run" > ~/xampp_gui.sh && echo "/opt/lampp/lampp" > ~/xampp_service.sh && chmod a+x ~/xampp_*.sh
 
 #### Docker (latest version) -> Reboot required
 curl -fsSL https://get.docker.com -o ~/get-docker.sh && chmod a+x ~/get-docker.sh && sudo sh ~/get-docker.sh && rm -f ~/get-docker.sh && sudo usermod -aG docker $(whoami) && sudo reboot
