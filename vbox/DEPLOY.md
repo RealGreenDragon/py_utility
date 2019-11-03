@@ -4,7 +4,7 @@ Author: Daniele Giudice
 
 ## Install/Update VirtualBox Guest Additions + Enable Shared Folders Access
 
-#### Update all packages + Install 'VirtualBox Guest Additions' dependencies
+#### Update all packages + Install 'VirtualBox Guest Additions' minimal dependencies
 sudo apt -y update && sudo apt -y upgrade && sudo apt -y install build-essential virtualbox-guest-dkms linux-headers-virtual && sudo apt -y autoremove && sudo apt -y clean
 
 #### Mount 'Guest Additions CD' from menu "Devices->Insert Guest Additions CD image..."
@@ -34,33 +34,36 @@ sudo setxkbmap it
 #### Permanent
 sudo dpkg-reconfigure keyboard-configuration
 
-## Software
+## Software (if not specified, latest available version will be installed)
 
 #### Base software
-sudo apt install -y curl wget net-tools unrar ffmpeg rtmpdump vlc vim python python-pip git && sudo apt -y autoremove && sudo apt -y clean
+sudo apt install -y apt-transport-https curl wget net-tools unrar ffmpeg rtmpdump vlc vim python python-pip git && sudo apt -y autoremove && sudo apt -y clean
 
-#### Pyhton Modules
+#### Pyhton Modules + youtube_dl
 sudo pip install --upgrade pip wheel setuptools requests python_utils pycryptodome youtube_dl
 
-#### MiKTeX
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys D6BC243565B2087BC3F897C9277A7293F59E4889 && echo "deb http://miktex.org/download/ubuntu $(lsb_release -cs) universe" | sudo tee /etc/apt/sources.list.d/miktex.list && sudo apt -y update && sudo apt -y install miktex &&sudo apt -y autoremove && sudo apt -y clean && sudo miktexsetup --shared=yes finish && sudo initexmf --admin --set-config-value [MPM]AutoInstall=1
+#### MiKTeX (system-wide installation, automatic package installation enabled)
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys D6BC243565B2087BC3F897C9277A7293F59E4889 && echo "deb http://miktex.org/download/ubuntu $(lsb_release -cs) universe" | sudo tee /etc/apt/sources.list.d/miktex.list && sudo apt -y update && sudo apt -y install miktex && sudo miktexsetup --shared=yes finish && sudo initexmf --admin --set-config-value [MPM]AutoInstall=1 && sudo apt -y autoremove && sudo apt -y clean
 
-#### Notepadqq (latest version)
-sudo add-apt-repository -y ppa:notepadqq-team/notepadqq && sudo apt -y update && sudo apt install -y notepadqq
+#### MKVToolNix
+wget -q -O - https://mkvtoolnix.download/gpg-pub-moritzbunkus.txt | sudo apt-key add - && echo "deb https://mkvtoolnix.download/ubuntu/ $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/mkvtoolnix.download.list && sudo apt -y update && sudo apt -y install mkvtoolnix mkvtoolnix-gui && sudo apt -y autoremove && sudo apt -y clean
 
-#### Atom (latest version)
+#### Notepadqq
+sudo add-apt-repository -y ppa:notepadqq-team/notepadqq && sudo apt -y update && sudo apt install -y notepadqq && sudo apt -y autoremove && sudo apt -y clean
+
+#### Atom
 wget -O ~/atom-amd64.deb https://atom.io/download/deb && sudo apt -y install ~/atom-amd64.deb && rm -f ~/atom-amd64.deb
 
-#### XAMPP v7.3.11 x64 + Shortcut scripts
+#### XAMPP v7.3.11 x64 + Shortcut scripts in home directory
 wget -O ~/xampp-x64.run "https://www.apachefriends.org/xampp-files/7.3.11/xampp-linux-x64-7.3.11-0-installer.run" && chmod a+x ~/xampp-x64.run && sudo ~/xampp-x64.run --mode unattended && rm -f ~/xampp-x64.run && sudo chmod o+rx -R /opt/lampp/htdocs/ && echo "/opt/lampp/manager-linux-x64.run" > ~/xampp_gui.sh && echo "/opt/lampp/lampp" > ~/xampp_service.sh && chmod a+x ~/xampp_*.sh
 
-#### Docker (latest version) -> Reboot required
+#### Docker (current user access enabled) -> Reboot required
 curl -fsSL https://get.docker.com -o ~/get-docker.sh && chmod a+x ~/get-docker.sh && sudo sh ~/get-docker.sh && rm -f ~/get-docker.sh && sudo usermod -aG docker $(whoami) && sudo reboot
 
-#### Wireshark (latest version) -> Reboot required
+#### Wireshark (current user access enabled) -> Reboot required
 sudo apt -y install wireshark && sudo usermod -aG wireshark $(whoami) && sudo reboot
 
-#### Kathara + GUI (latest version) -> Requirements: Docker + python 2.7 (aliased as python)
+#### Kathara + GUI -> Requirements: Docker + python 2.7 (aliased as python)
 sudo pip install --upgrade ipaddress && sudo apt -y install xterm && sudo git clone --recursive https://github.com/KatharaFramework/Kathara.git /opt/kathara
 
 printf "\n#Kathara Config\nexport NETKIT_HOME=/opt/kathara/bin\nexport PATH=\$PATH:\$NETKIT_HOME" >> ~/.bashrc
