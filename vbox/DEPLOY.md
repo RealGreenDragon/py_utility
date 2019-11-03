@@ -42,10 +42,10 @@ sudo apt install -y apt-transport-https curl wget net-tools unrar ffmpeg rtmpdum
 #### Pyhton Modules + youtube_dl
 sudo pip install --upgrade pip wheel setuptools requests python_utils pycryptodome youtube_dl
 
-#### MiKTeX (system-wide, full installation, automatic package installation enabled)
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys D6BC243565B2087BC3F897C9277A7293F59E4889 && echo "deb http://miktex.org/download/ubuntu $(lsb_release -cs) universe" | sudo tee /etc/apt/sources.list.d/miktex.list && sudo apt -y update && sudo apt -y install miktex && sudo miktexsetup --shared=yes finish && sudo initexmf --admin --set-config-value [MPM]AutoInstall=1 && sudo mpm --admin --verbose --package-level=complete --update-db --upgrade && sudo apt -y autoremove && sudo apt -y clean
+#### MiKTeX (system-wide, basic installation, automatic package installation enabled)
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys D6BC243565B2087BC3F897C9277A7293F59E4889 && echo "deb http://miktex.org/download/ubuntu $(lsb_release -cs) universe" | sudo tee /etc/apt/sources.list.d/miktex.list && sudo apt -y update && sudo apt -y install miktex && sudo miktexsetup --shared=yes finish && sudo initexmf --admin --set-config-value [MPM]AutoInstall=1 && sudo mpm --admin --verbose --package-level=basic --upgrade && sudo apt -y autoremove && sudo apt -y clean
 
-#### MKVToolNix
+#### MKVToolNix + GUI
 wget -q -O - https://mkvtoolnix.download/gpg-pub-moritzbunkus.txt | sudo apt-key add - && echo "deb https://mkvtoolnix.download/ubuntu/ $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/mkvtoolnix.download.list && sudo apt -y update && sudo apt -y install mkvtoolnix mkvtoolnix-gui && sudo apt -y autoremove && sudo apt -y clean
 
 #### Notepadqq
