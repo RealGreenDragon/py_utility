@@ -25,10 +25,10 @@ sudo reboot
 
 ## Set Italian Keyboard
 
-#### Valid until reboot (No GUI Environment)
+#### Valid until reboot (CLI)
 sudo loadkeys it
 
-#### Valid until reboot (GUI Environment)
+#### Valid until reboot (GUI)
 sudo setxkbmap it
 
 #### Permanent
@@ -37,7 +37,7 @@ sudo dpkg-reconfigure keyboard-configuration
 ## Software (if not specified, latest available version will be installed)
 
 #### Base software
-sudo apt install -y apt-transport-https build-essential curl wget net-tools unrar ffmpeg rtmpdump vlc vim git qpdf python3 python3-pip python3-venv && sudo apt -y autoremove && sudo apt -y clean
+sudo apt -y update && sudo apt -y upgrade && sudo apt -y install apt-transport-https build-essential curl wget net-tools unrar ffmpeg rtmpdump vlc vim git qpdf python3 python3-pip python3-venv && sudo apt -y autoremove && sudo apt -y clean
 
 #### Pyhton Modules + youtube_dl
 sudo python3 -m pip install --upgrade pip wheel setuptools requests python_utils pycryptodome youtube_dl
