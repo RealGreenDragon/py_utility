@@ -34,12 +34,18 @@ sudo setxkbmap it
 #### Permanent
 sudo dpkg-reconfigure keyboard-configuration
 
+## Bash proxy settings
+
+export HTTP_PROXY=http://username:password@proxyhost:port/
+
+export HTTPS_PROXY=https://username:password@proxyhost:port/
+
 ## Software (if not specified, latest available version will be installed)
 
 #### Base software
-sudo apt -y update && sudo apt -y upgrade && sudo apt -y install apt-transport-https build-essential curl wget net-tools unrar ffmpeg rtmpdump vlc vim git qpdf python3 python3-pip python3-venv && sudo apt -y autoremove && sudo apt -y clean
+sudo apt -y update && sudo apt -y upgrade && sudo apt -y install apt-transport-https build-essential curl wget net-tools unrar ffmpeg rtmpdump vlc ffmpegthumbnailer vim git qpdf python3 python3-pip python3-venv && sudo apt -y autoremove && sudo apt -y clean
 
-#### Pyhton Modules + youtube_dl
+#### Pyhton3 Modules + youtube_dl
 sudo python3 -m pip install --upgrade pip wheel setuptools requests python_utils pycryptodome youtube_dl
 
 #### MiKTeX (system-wide, basic installation, automatic package installation enabled)
@@ -52,7 +58,7 @@ wget -q -O - https://mkvtoolnix.download/gpg-pub-moritzbunkus.txt | sudo apt-key
 sudo add-apt-repository -y ppa:notepadqq-team/notepadqq && sudo apt -y update && sudo apt install -y notepadqq && sudo apt -y autoremove && sudo apt -y clean
 
 #### Atom
-wget -O ~/atom-amd64.deb https://atom.io/download/deb && sudo apt -y install ~/atom-amd64.deb && rm -f ~/atom-amd64.deb
+wget -O ~/atom-amd64.deb https://atom.io/download/deb && sudo apt -y install ~/atom-amd64.deb && rm -f ~/atom-amd64.deb && sudo apt -y autoremove && sudo apt -y clean
 
 #### XAMPP v7.4.1 x64 + Shortcut scripts in home directory
 wget -O ~/xampp-x64.run "https://www.apachefriends.org/xampp-files/7.4.1/xampp-linux-x64-7.4.1-0-installer.run" && chmod a+x ~/xampp-x64.run && sudo ~/xampp-x64.run --mode unattended && rm -f ~/xampp-x64.run && sudo chmod o+rx -R /opt/lampp/htdocs/ && echo "/opt/lampp/manager-linux-x64.run" > ~/xampp_gui.sh && echo "/opt/lampp/lampp" > ~/xampp_service.sh && chmod a+x ~/xampp_*.sh
@@ -62,6 +68,9 @@ curl -fsSL https://get.docker.com -o ~/get-docker.sh && chmod a+x ~/get-docker.s
 
 #### Wireshark (current user access enabled) -> Reboot required
 sudo apt -y install wireshark && sudo usermod -aG wireshark $(whoami) && sudo reboot
+
+#### Nmap
+sudo apt -y install nmap && sudo apt -y autoremove && sudo apt -y clean
 
 #### Kathara + GUI -> Requirements: Docker + python 2.7 (aliased as 'python')
 sudo apt -y install xterm python && sudo python -m pip install --upgrade ipaddress && sudo git clone --recursive https://github.com/KatharaFramework/Kathara.git /opt/kathara
@@ -78,4 +87,4 @@ $NETKIT_HOME/install
 sudo add-apt-repository -y ppa:qbittorrent-team/qbittorrent-stable && sudo apt -y update && sudo apt install -y qbittorrent && sudo apt -y autoremove && sudo apt -y clean
 
 #### aMule
-sudo apt -y update && sudo apt install -y amule && sudo apt -y autoremove && sudo apt -y clean
+sudo apt install -y amule && sudo apt -y autoremove && sudo apt -y clean
