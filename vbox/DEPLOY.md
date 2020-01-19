@@ -1,4 +1,4 @@
-# VirtualBox Ubuntu 18.04 LTS Configuration Guide
+# Ubuntu 18.04 LTS Configuration Guide
 
 Author: Daniele Giudice
 
