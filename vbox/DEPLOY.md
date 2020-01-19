@@ -42,8 +42,14 @@ sudo reboot
 
 ## Software (if not specified, latest available version will be installed)
 
+#### Enable all base repositories
+sudo add-apt-repository main && sudo add-apt-repository universe && sudo add-apt-repository restricted && sudo add-apt-repository multiverse && sudo apt -y update
+
 #### Base software
-sudo apt -y update && sudo apt -y upgrade && sudo apt -y install apt-transport-https build-essential curl wget net-tools unrar ffmpeg rtmpdump vlc ffmpegthumbnailer vim git qpdf python3 python3-pip python3-venv && sudo apt -y autoremove && sudo apt -y clean
+sudo apt -y update && sudo apt -y upgrade && sudo apt -y install apt-transport-https build-essential curl wget net-tools unrar sed cut gawk vim git qpdf python3 python3-pip python3-venv && sudo apt -y autoremove && sudo apt -y clean
+
+#### Codecs
+sudo apt -y update && sudo apt -y upgrade && sudo apt -y install vlc vlc-data libdvdnav4 libdvdread4 gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly libdvd-pkg ubuntu-restricted-extras ffmpeg rtmpdump ffmpegthumbnailer
 
 #### Pyhton3 Modules + youtube_dl
 sudo python3 -m pip install --upgrade pip wheel setuptools requests python_utils pycryptodome youtube_dl
